@@ -37,7 +37,7 @@ export default function AboutUs() {
   ];
 
   return (
-    <section id="about" className="relative py-20 sm:py-24 md:py-32 bg-gradient-to-br from-slate-50 via-amber-50/20 to-slate-50 overflow-hidden">
+    <section id="about" className="relative py-12 sm:py-20 md:py-28 bg-gradient-to-br from-slate-50 via-amber-50/20 to-slate-50 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03]">
         <div className="absolute inset-0" style={{
@@ -52,16 +52,16 @@ export default function AboutUs() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-16 sm:mb-20"
+          className="mb-10 sm:mb-16"
         >
           <div className="flex items-center gap-3 mb-6">
             <div className="h-px w-12 bg-gradient-to-r from-amber-500 to-transparent"></div>
             <span className="text-amber-600 font-bold text-sm uppercase tracking-widest">About Us</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-blue-950 mb-6 tracking-tight">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-blue-950 mb-6 tracking-tight">
             Trusted Logistics Partner
           </h2>
-          <p className="text-lg sm:text-xl text-slate-600 max-w-3xl leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-3xl leading-relaxed">
             For over a decade, Harton Logistics has been at the forefront of supply chain innovation, 
             delivering reliable and efficient logistics solutions to businesses across Southeast Asia.
           </p>
@@ -72,9 +72,9 @@ export default function AboutUs() {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7 }}
-          className="relative mb-16 sm:mb-20 rounded-3xl overflow-hidden shadow-2xl"
+          className="relative mb-10 sm:mb-16 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl"
         >
-          <div className="relative h-[400px] sm:h-[500px] md:h-[600px]">
+          <div className="relative h-[300px] sm:h-[450px] md:h-[550px]">
             <img 
               src={aboutHartonImage} 
               alt="Harton Logistics Team" 
@@ -83,8 +83,8 @@ export default function AboutUs() {
             <div className="absolute inset-0 bg-gradient-to-t from-blue-950/90 via-blue-950/40 to-transparent"></div>
             
             {/* Stats Overlay */}
-            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 md:p-12">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+            <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-8 md:p-12">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
                 {stats.map((stat, index) => (
                   <motion.div
                     key={index}
@@ -107,29 +107,29 @@ export default function AboutUs() {
         </motion.div>
 
         {/* Vision & Mission Section */}
-        <div className="mb-16 sm:mb-20">
+        <div className="mb-10 sm:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-10"
+            className="mb-6 sm:mb-10"
           >
             <div className="flex items-center gap-3 mb-3">
               <div className="h-px w-12 bg-amber-500"></div>
               <span className="text-amber-600 font-semibold text-sm uppercase tracking-wide">Vision & Mission</span>
             </div>
-            <h3 className="text-3xl sm:text-4xl font-bold text-blue-950">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-950">
               Our Purpose & Direction
             </h3>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
             {/* Vision */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="bg-blue-950 rounded-lg p-8 text-white"
+              className="bg-blue-950 rounded-lg p-6 sm:p-8 text-white"
             >
               <div className="w-12 h-12 rounded-lg bg-amber-500 flex items-center justify-center mb-4">
                 <svg className="w-6 h-6 text-blue-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -149,7 +149,7 @@ export default function AboutUs() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="bg-white rounded-lg p-8 border-2 border-amber-400"
+              className="bg-white rounded-lg p-6 sm:p-8 border-2 border-amber-400"
             >
               <div className="w-12 h-12 rounded-lg bg-blue-950 flex items-center justify-center mb-4">
                 <svg className="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -167,41 +167,41 @@ export default function AboutUs() {
         </div>
 
         {/* Story Section - Clean Professional Timeline */}
-        <div className="mb-16 sm:mb-20">
+        <div className="mb-10 sm:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-10"
+            className="mb-6 sm:mb-10"
           >
             <div className="flex items-center gap-3 mb-3">
               <div className="h-px w-12 bg-amber-500"></div>
               <span className="text-amber-600 font-semibold text-sm uppercase tracking-wide">Our Journey</span>
             </div>
-            <h3 className="text-3xl sm:text-4xl font-bold text-blue-950">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-950">
               Built on experience, driven by excellence
             </h3>
           </motion.div>
 
           {/* Timeline Items - Vertical Layout */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {/* 2015 */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="relative bg-white rounded-lg p-8 border-l-4 border-blue-950 shadow-sm"
+              className="relative bg-white rounded-lg p-4 sm:p-8 border-l-4 border-blue-950 shadow-sm"
             >
-              <div className="flex items-start gap-8">
-                <div className="flex-shrink-0 w-24">
-                  <div className="flex flex-col items-center gap-1 bg-blue-950 rounded-lg px-4 py-3 w-full">
+              <div className="flex items-start gap-4 sm:gap-8">
+                <div className="flex-shrink-0 w-20 sm:w-24">
+                  <div className="flex flex-col items-center gap-1 bg-blue-950 rounded-lg px-3 py-2 sm:px-4 sm:py-3 w-full">
                     <span className="text-amber-400 font-bold text-xs uppercase tracking-wider">Year</span>
-                    <span className="text-white font-bold text-2xl">2015</span>
+                    <span className="text-white font-bold text-xl sm:text-2xl">2015</span>
                   </div>
                 </div>
-                <div className="flex-1 pt-1">
-                  <h4 className="text-xl font-bold text-blue-950 mb-3">The Foundation</h4>
-                  <p className="text-slate-600 leading-relaxed text-sm">
+                <div className="flex-1 pt-0.5 sm:pt-1">
+                  <h4 className="text-lg sm:text-xl font-bold text-blue-950 mb-2 sm:mb-3">The Foundation</h4>
+                  <p className="text-slate-600 leading-relaxed text-xs sm:text-sm">
                     PT Harton Transportasi Internasional was founded with the goal of helping businesses and individuals who faced 
                     difficulties in managing permissions and customs clearance. We recognized the challenges in dealing with regulatory 
                     compliance and import/export documentation, many people also struggled with handling goods that were detained or 
@@ -217,18 +217,18 @@ export default function AboutUs() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="relative bg-white rounded-lg p-8 border-l-4 border-blue-950 shadow-sm"
+              className="relative bg-white rounded-lg p-4 sm:p-8 border-l-4 border-blue-950 shadow-sm"
             >
-              <div className="flex items-start gap-8">
-                <div className="flex-shrink-0 w-24">
-                  <div className="flex flex-col items-center gap-1 bg-blue-950 rounded-lg px-4 py-3 w-full">
+              <div className="flex items-start gap-4 sm:gap-8">
+                <div className="flex-shrink-0 w-20 sm:w-24">
+                  <div className="flex flex-col items-center gap-1 bg-blue-950 rounded-lg px-3 py-2 sm:px-4 sm:py-3 w-full">
                     <span className="text-amber-400 font-bold text-xs uppercase tracking-wider">Year</span>
-                    <span className="text-white font-bold text-2xl">2017</span>
+                    <span className="text-white font-bold text-xl sm:text-2xl">2017</span>
                   </div>
                 </div>
-                <div className="flex-1 pt-1">
-                  <h4 className="text-xl font-bold text-blue-950 mb-3">The Evolution</h4>
-                  <p className="text-slate-600 leading-relaxed text-sm">
+                <div className="flex-1 pt-0.5 sm:pt-1">
+                  <h4 className="text-lg sm:text-xl font-bold text-blue-950 mb-2 sm:mb-3">The Evolution</h4>
+                  <p className="text-slate-600 leading-relaxed text-xs sm:text-sm">
                     As demand for comprehensive logistics solutions grew, we expanded our services to include stevedoring 
                     and trucking. This expansion allowed our customers to simplify their logistics processes, as they no longer 
                     needed to handle cargo unloading and inland transportation separately. Our goal was to meet customer demand 
@@ -246,18 +246,18 @@ export default function AboutUs() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="relative bg-white rounded-lg p-8 border-l-4 border-amber-500 shadow-sm"
+              className="relative bg-white rounded-lg p-4 sm:p-8 border-l-4 border-amber-500 shadow-sm"
             >
-              <div className="flex items-start gap-8">
-                <div className="flex-shrink-0 w-24">
-                  <div className="flex flex-col items-center gap-1 bg-amber-500 rounded-lg px-4 py-3 w-full">
+              <div className="flex items-start gap-4 sm:gap-8">
+                <div className="flex-shrink-0 w-20 sm:w-24">
+                  <div className="flex flex-col items-center gap-1 bg-amber-500 rounded-lg px-3 py-2 sm:px-4 sm:py-3 w-full">
                     <span className="text-blue-950 font-bold text-xs uppercase tracking-wider">Current</span>
-                    <span className="text-blue-950 font-bold text-xl">Present</span>
+                    <span className="text-blue-950 font-bold text-lg sm:text-xl">Present</span>
                   </div>
                 </div>
-                <div className="flex-1 pt-1">
-                  <h4 className="text-xl font-bold text-blue-950 mb-3">Today & Beyond</h4>
-                  <p className="text-slate-600 leading-relaxed text-sm">
+                <div className="flex-1 pt-0.5 sm:pt-1">
+                  <h4 className="text-lg sm:text-xl font-bold text-blue-950 mb-2 sm:mb-3">Today & Beyond</h4>
+                  <p className="text-slate-600 leading-relaxed text-xs sm:text-sm">
                     Today, we offer a full suite of logistics services from permissions handling, customer clearance, stevedoring, 
                     trucking including warehousing, providing a truly end-to-end logistics solution. Our commitment to innovation 
                     and excellence continues to drive our growth and success.
@@ -269,28 +269,28 @@ export default function AboutUs() {
         </div>
 
         {/* Why Choose Us Section */}
-        <div className="mb-16 sm:mb-20">
+        <div className="mb-10 sm:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-10"
+            className="mb-6 sm:mb-10"
           >
             <div className="flex items-center gap-3 mb-3">
               <div className="h-px w-12 bg-amber-500"></div>
               <span className="text-amber-600 font-semibold text-sm uppercase tracking-wide">Why Choose Us</span>
             </div>
-            <h3 className="text-3xl sm:text-4xl font-bold text-blue-950">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-950">
               Your Success is Our Priority
             </h3>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-white rounded-lg p-6 border border-slate-200 hover:border-amber-400 transition-colors duration-300"
+              className="bg-white rounded-lg p-5 sm:p-6 border border-slate-200 hover:border-amber-400 transition-colors duration-300"
             >
               <div className="w-12 h-12 rounded-lg bg-amber-500 flex items-center justify-center mb-4">
                 <svg className="w-6 h-6 text-blue-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -307,7 +307,7 @@ export default function AboutUs() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-white rounded-lg p-6 border border-slate-200 hover:border-amber-400 transition-colors duration-300"
+              className="bg-white rounded-lg p-5 sm:p-6 border border-slate-200 hover:border-amber-400 transition-colors duration-300"
             >
               <div className="w-12 h-12 rounded-lg bg-blue-950 flex items-center justify-center mb-4">
                 <svg className="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -324,7 +324,7 @@ export default function AboutUs() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="bg-white rounded-lg p-6 border border-slate-200 hover:border-amber-400 transition-colors duration-300"
+              className="bg-white rounded-lg p-5 sm:p-6 border border-slate-200 hover:border-amber-400 transition-colors duration-300"
             >
               <div className="w-12 h-12 rounded-lg bg-amber-500 flex items-center justify-center mb-4">
                 <svg className="w-6 h-6 text-blue-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -341,7 +341,7 @@ export default function AboutUs() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="bg-white rounded-lg p-6 border border-slate-200 hover:border-amber-400 transition-colors duration-300"
+              className="bg-white rounded-lg p-5 sm:p-6 border border-slate-200 hover:border-amber-400 transition-colors duration-300"
             >
               <div className="w-12 h-12 rounded-lg bg-blue-950 flex items-center justify-center mb-4">
                 <svg className="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -362,24 +362,24 @@ export default function AboutUs() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="mb-10">
+          <div className="mb-6 sm:mb-10">
             <div className="flex items-center gap-3 mb-3">
               <div className="h-px w-12 bg-amber-500"></div>
               <span className="text-amber-600 font-semibold text-sm uppercase tracking-wide">Core Values</span>
             </div>
-            <h3 className="text-3xl sm:text-4xl font-bold text-blue-950">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-950">
               What Drives Us Forward
             </h3>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {values.map((value, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
-                className="bg-white rounded-lg p-6 border border-slate-200 hover:border-amber-400 transition-colors duration-300"
+                className="bg-white rounded-lg p-5 sm:p-6 border border-slate-200 hover:border-amber-400 transition-colors duration-300"
               >
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-8 h-8 rounded bg-blue-950 flex items-center justify-center">

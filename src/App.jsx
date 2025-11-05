@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Timeline from "./components/Timeline";
-import Purpose from "./components/Purpose";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -14,8 +12,6 @@ export default function App() {
       <Navbar />
       <Hero />
       <AboutUs />
-      <Timeline />
-      <Purpose />
       <Services />
       <Contact />
       <Footer />

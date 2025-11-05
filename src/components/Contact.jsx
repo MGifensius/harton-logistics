@@ -1,201 +1,223 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
-export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-
-  const contactInfo = [
+export default function Services() {
+  const services = [
     {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-      ),
-      title: "Address",
-      content: (
-        <>
-          PT Harton Transportasi International <br />
-          Menara Jakarta Office Tower, 25L, North Jakarta City, Jakarta 10630
-        </>
-      )
+      title: "Freight Forwarding",
+      description: "Comprehensive air, sea, and land freight solutions with global coverage and competitive pricing.",
+      image: "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?q=80&w=800"
     },
     {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-        </svg>
-      ),
-      title: "Phone",
-      content: "+62 852-1380-8290"
+      title: "Integrated Supply Chain Solutions",
+      description: "End-to-end supply chain management optimizing efficiency and reducing operational costs.",
+      image: "https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=800"
     },
     {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      ),
-      title: "Email",
-      content: "hartontransindonesia@gmail.com"
+      title: "Warehouse & Distribution",
+      description: "Strategic warehousing solutions with efficient distribution networks across major regions.",
+      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800"
+    },
+    {
+      title: "Last-Mile Delivery",
+      description: "Reliable final delivery services ensuring timely and secure product arrival to end customers.",
+      image: "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?q=80&w=800"
+    },
+    {
+      title: "Cold Chain Logistics",
+      description: "Temperature-controlled logistics for perishable goods with real-time monitoring.",
+      image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=800"
+    },
+    {
+      title: "Customs Brokerage",
+      description: "Expert customs clearance services ensuring compliance and smooth cross-border transactions.",
+      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800"
+    },
+    {
+      title: "Project Cargo Management",
+      description: "Specialized handling for oversized and complex project cargo with precision planning.",
+      image: "https://images.unsplash.com/photo-1581094271901-8022df4466f9?q=80&w=800"
     }
   ];
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+  const slides = [
+    // Slide 1: Services 1, 2, 3
+    [services[0], services[1], services[2]],
+    // Slide 2: Services 4, 5, 6
+    [services[3], services[4], services[5]],
+    // Slide 3: Service 7 + 2 Coming Soon
+    [
+      services[6],
+      { title: "Coming Soon", description: "We're constantly expanding our services to better serve your logistics needs.", empty: true },
+      { title: "Coming Soon", description: "New innovative solutions are in development to enhance your supply chain.", empty: true }
+    ]
+  ];
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-gray-50 to-blue-50/30">
-      <div className="container mx-auto px-4 sm:px-6">
-        {/* Header Section */}
+    <section id="service" className="relative py-20 sm:py-24 md:py-32 bg-gradient-to-br from-slate-50 via-amber-50/20 to-slate-50 overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgb(30 58 138) 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }}></div>
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
+        {/* Section Header - Left Aligned */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-12 sm:mb-16"
+          transition={{ duration: 0.5 }}
+          className="mb-16 sm:mb-20"
         >
-          <div className="inline-flex items-center gap-2 sm:gap-3 bg-blue-50 rounded-full px-4 sm:px-6 py-2 mb-4 sm:mb-6 border border-blue-200">
-            <svg className="w-4 h-4 sm:w-5 sm:h-5 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-            </svg>
-            <span className="text-slate-950 font-semibold text-xs sm:text-sm uppercase tracking-wide">Contact Us</span>
+          <div className="flex items-center gap-3 mb-3">
+            <div className="h-px w-12 bg-amber-500"></div>
+            <span className="text-amber-600 font-semibold text-sm uppercase tracking-wide">Our Services</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 px-2">
-            Let's Grow Together
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-950 mb-4 tracking-tight">
+            What We Deliver
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-2">
-            Ready to transform your logistics? Let's discuss your goals and design a smarter path forward.
+          <p className="text-lg sm:text-xl text-slate-600 max-w-3xl leading-relaxed">
+            Comprehensive logistics solutions tailored to your business needs
           </p>
         </motion.div>
 
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
-            {/* Left Side - Contact Information */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="space-y-6 sm:space-y-8"
-            >
-              <div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Get in Touch</h3>
-                <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8">
-                  Our team is ready to provide you with personalized logistics solutions 
-                  that drive efficiency and growth for your business.
-                </p>
-              </div>
-
-              {/* Contact Info Cards */}
-              <div className="space-y-3 sm:space-y-4">
-                {contactInfo.map((item, index) => (
+        {/* Carousel Container */}
+        <div className="relative max-w-6xl mx-auto">
+          {/* Carousel Cards */}
+          <div className="relative mb-3">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentSlide}
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -100 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="grid grid-cols-1 md:grid-cols-3 gap-6"
+              >
+                {slides[currentSlide].map((service, index) => (
                   <motion.div
-                    key={index}
+                    key={`${currentSlide}-${index}`}
                     initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="flex items-start gap-3 sm:gap-4 p-4 rounded-xl sm:rounded-2xl bg-white/50 backdrop-blur-sm border border-gray-100 hover:shadow-lg transition-all duration-300"
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                    className={`relative rounded-lg overflow-hidden shadow-lg border transition-all duration-300 h-[280px] md:h-[320px] ${
+                      service.empty 
+                        ? "bg-gradient-to-br from-slate-50 to-slate-100 border-dashed border-slate-300" 
+                        : "border-slate-200 hover:border-amber-400 hover:shadow-xl group"
+                    }`}
                   >
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-lg sm:rounded-xl flex items-center justify-center text-blue-950 flex-shrink-0">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">{item.title}</h4>
-                      <p className="text-gray-600 text-sm sm:text-base">{item.content}</p>
+                    {/* Background Image with Overlay */}
+                    {!service.empty && (
+                      <>
+                        <div 
+                          className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
+                          style={{ backgroundImage: `url(${service.image})` }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-blue-950/95 via-blue-950/85 to-blue-950/70"></div>
+                      </>
+                    )}
+                    
+                    {/* Card Content */}
+                    <div className={`relative z-10 p-6 flex flex-col h-full ${service.empty ? '' : 'text-white'}`}>
+                      {/* Service Number or Coming Soon Icon - Simplified */}
+                      <div className={`mb-4 ${
+                        service.empty ? "text-slate-400" : "text-amber-400"
+                      }`}>
+                        {service.empty ? (
+                          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                          </svg>
+                        ) : (
+                          <span className="text-3xl font-bold">
+                            {String(currentSlide * 3 + index + 1).padStart(2, '0')}
+                          </span>
+                        )}
+                      </div>
+                      
+                      {/* Service Content */}
+                      <h3 className={`text-lg font-bold mb-3 ${
+                        service.empty ? "text-slate-500" : "text-white"
+                      }`}>
+                        {service.title}
+                      </h3>
+                      <p className={`text-sm leading-relaxed flex-1 ${
+                        service.empty ? "text-slate-400" : "text-slate-200"
+                      }`}>
+                        {service.description}
+                      </p>
                     </div>
                   </motion.div>
                 ))}
-              </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
-              {/* Additional Info */}
-              <div className="bg-gradient-to-r from-blue-800 to-blue-900 rounded-xl sm:rounded-2xl p-5 sm:p-6 text-white">
-                <h4 className="font-bold text-base sm:text-lg mb-2">Business Hours</h4>
-                <p className="text-blue-100 text-sm sm:text-base">Monday - Friday: 8:00 AM - 6:00 PM</p>
-                <p className="text-blue-100 text-sm sm:text-base">Saturday: 9:00 AM - 2:00 PM</p>
-              </div>
-            </motion.div>
-
-            {/* Right Side - Contact Form */}
-            <motion.form
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              onSubmit={handleSubmit}
-              className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-xl border border-gray-100"
+          {/* Carousel Navigation - Very Close to Cards */}
+          <div className="flex items-center justify-center gap-6 mb-3">
+            <button
+              onClick={prevSlide}
+              className="w-10 h-10 bg-white border-2 border-slate-300 rounded-full flex items-center justify-center hover:border-amber-400 hover:bg-amber-50 transition-all duration-300"
+              aria-label="Previous slide"
             >
-              <div className="space-y-5 sm:space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Enter your full name"
-                    className="w-full border border-gray-300 rounded-lg sm:rounded-xl px-4 py-2.5 sm:py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm sm:text-base"
-                    required
-                  />
-                </div>
+              <svg className="w-5 h-5 text-blue-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            
+            {/* Dots Indicator */}
+            <div className="flex gap-2">
+              {slides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    currentSlide === index 
+                      ? 'bg-amber-500 scale-125' 
+                      : 'bg-slate-300 hover:bg-amber-300'
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Enter your email address"
-                    className="w-full border border-gray-300 rounded-lg sm:rounded-xl px-4 py-2.5 sm:py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm sm:text-base"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows="5"
-                    placeholder="Tell us about your logistics needs..."
-                    className="w-full border border-gray-300 rounded-lg sm:rounded-xl px-4 py-2.5 sm:py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none text-sm sm:text-base"
-                    required
-                  ></textarea>
-                </div>
-
-                <motion.button
-                  type="submit"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full bg-gradient-to-r from-blue-900 to-indigo-900 text-white font-semibold py-3 sm:py-4 rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base"
-                >
-                  Send Message
-                </motion.button>
-              </div>
-            </motion.form>
+            <button
+              onClick={nextSlide}
+              className="w-10 h-10 bg-white border-2 border-slate-300 rounded-full flex items-center justify-center hover:border-amber-400 hover:bg-amber-50 transition-all duration-300"
+              aria-label="Next slide"
+            >
+              <svg className="w-5 h-5 text-blue-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
           </div>
         </div>
+
+        {/* Additional Info - Very Close to Navigation */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.5 }}
+          className="text-center"
+        >
+          <p className="text-base text-slate-600 mb-3">
+            Need a customized logistics solution?
+          </p>
+          <button className="bg-blue-950 text-white px-8 py-3 rounded-lg font-semibold hover:bg-amber-500 hover:text-blue-950 transition-all duration-300 shadow-lg">
+            Contact Our Experts
+          </button>
+        </motion.div>
       </div>
     </section>
   );

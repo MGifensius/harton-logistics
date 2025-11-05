@@ -1,70 +1,44 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { motion } from "framer-motion";
 
-export default function Services() {
-  const services = [
+export default function Contact() {
+  const contactInfo = [
     {
-      title: "Freight Forwarding",
-      description: "Comprehensive air, sea, and land freight solutions with global coverage and competitive pricing.",
-      image: "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?q=80&w=800"
+      icon: (
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+        </svg>
+      ),
+      title: "Phone",
+      detail: "0852-1380-8290",
+      link: "tel:+6285213808290"
     },
     {
-      title: "Integrated Supply Chain Solutions",
-      description: "End-to-end supply chain management optimizing efficiency and reducing operational costs.",
-      image: "https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=800"
+      icon: (
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      ),
+      title: "Email",
+      detail: "hartontransindonesia@gmail.com",
+      link: "mailto:hartontransindonesia@gmail.com"
     },
     {
-      title: "Warehouse & Distribution",
-      description: "Strategic warehousing solutions with efficient distribution networks across major regions.",
-      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800"
-    },
-    {
-      title: "Last-Mile Delivery",
-      description: "Reliable final delivery services ensuring timely and secure product arrival to end customers.",
-      image: "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?q=80&w=800"
-    },
-    {
-      title: "Cold Chain Logistics",
-      description: "Temperature-controlled logistics for perishable goods with real-time monitoring.",
-      image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=800"
-    },
-    {
-      title: "Customs Brokerage",
-      description: "Expert customs clearance services ensuring compliance and smooth cross-border transactions.",
-      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800"
-    },
-    {
-      title: "Project Cargo Management",
-      description: "Specialized handling for oversized and complex project cargo with precision planning.",
-      image: "https://images.unsplash.com/photo-1581094271901-8022df4466f9?q=80&w=800"
+      icon: (
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      ),
+      title: "Office",
+      detail: "PT Harton Transportasi International, Menara Jakarta Office Tower, 25L. Jl. HBR Motik No.Kav. 1, RW.10, East Pademangan, Pademangan, North Jakarta City, Jakarta 10630",
+      link: "https://maps.google.com/?q=Menara+Jakarta+Office+Tower"
     }
   ];
 
-  const slides = [
-    // Slide 1: Services 1, 2, 3
-    [services[0], services[1], services[2]],
-    // Slide 2: Services 4, 5, 6
-    [services[3], services[4], services[5]],
-    // Slide 3: Service 7 + 2 Coming Soon
-    [
-      services[6],
-      { title: "Coming Soon", description: "We're constantly expanding our services to better serve your logistics needs.", empty: true },
-      { title: "Coming Soon", description: "New innovative solutions are in development to enhance your supply chain.", empty: true }
-    ]
-  ];
-
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
+  const whatsappLink = "https://wa.me/6285213808290?text=Hello%20Harton%20Logistics,%20I%20would%20like%20to%20inquire%20about%20your%20services.";
 
   return (
-    <section id="service" className="relative py-20 sm:py-24 md:py-32 bg-gradient-to-br from-slate-50 via-amber-50/20 to-slate-50 overflow-hidden">
+    <section id="contact" className="relative py-20 sm:py-24 md:py-32 bg-gradient-to-br from-slate-50 via-amber-50/20 to-slate-50 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03]">
         <div className="absolute inset-0" style={{
@@ -83,142 +57,119 @@ export default function Services() {
         >
           <div className="flex items-center gap-3 mb-3">
             <div className="h-px w-12 bg-amber-500"></div>
-            <span className="text-amber-600 font-semibold text-sm uppercase tracking-wide">Our Services</span>
+            <span className="text-amber-600 font-semibold text-sm uppercase tracking-wide">Contact Us</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-950 mb-4 tracking-tight">
-            What We Deliver
+            Get In Touch
           </h2>
           <p className="text-lg sm:text-xl text-slate-600 max-w-3xl leading-relaxed">
-            Comprehensive logistics solutions tailored to your business needs
+            Have questions about our services? We're here to help. Reach out to our team for expert logistics solutions.
           </p>
         </motion.div>
 
-        {/* Carousel Container */}
-        <div className="relative max-w-6xl mx-auto">
-          {/* Carousel Cards */}
-          <div className="relative mb-3">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentSlide}
-                initial={{ opacity: 0, x: 100 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -100 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="grid grid-cols-1 md:grid-cols-3 gap-6"
-              >
-                {slides[currentSlide].map((service, index) => (
-                  <motion.div
-                    key={`${currentSlide}-${index}`}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1, duration: 0.5 }}
-                    className={`relative rounded-lg overflow-hidden shadow-lg border transition-all duration-300 h-[280px] md:h-[320px] ${
-                      service.empty 
-                        ? "bg-gradient-to-br from-slate-50 to-slate-100 border-dashed border-slate-300" 
-                        : "border-slate-200 hover:border-amber-400 hover:shadow-xl group"
-                    }`}
-                  >
-                    {/* Background Image with Overlay */}
-                    {!service.empty && (
-                      <>
-                        <div 
-                          className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
-                          style={{ backgroundImage: `url(${service.image})` }}
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-blue-950/95 via-blue-950/85 to-blue-950/70"></div>
-                      </>
-                    )}
-                    
-                    {/* Card Content */}
-                    <div className={`relative z-10 p-6 flex flex-col h-full ${service.empty ? '' : 'text-white'}`}>
-                      {/* Service Number or Coming Soon Icon - Simplified */}
-                      <div className={`mb-4 ${
-                        service.empty ? "text-slate-400" : "text-amber-400"
-                      }`}>
-                        {service.empty ? (
-                          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                          </svg>
-                        ) : (
-                          <span className="text-3xl font-bold">
-                            {String(currentSlide * 3 + index + 1).padStart(2, '0')}
-                          </span>
-                        )}
-                      </div>
-                      
-                      {/* Service Content */}
-                      <h3 className={`text-lg font-bold mb-3 ${
-                        service.empty ? "text-slate-500" : "text-white"
-                      }`}>
-                        {service.title}
-                      </h3>
-                      <p className={`text-sm leading-relaxed flex-1 ${
-                        service.empty ? "text-slate-400" : "text-slate-200"
-                      }`}>
-                        {service.description}
-                      </p>
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Carousel Navigation - Very Close to Cards */}
-          <div className="flex items-center justify-center gap-6 mb-3">
-            <button
-              onClick={prevSlide}
-              className="w-10 h-10 bg-white border-2 border-slate-300 rounded-full flex items-center justify-center hover:border-amber-400 hover:bg-amber-50 transition-all duration-300"
-              aria-label="Previous slide"
-            >
-              <svg className="w-5 h-5 text-blue-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            
-            {/* Dots Indicator */}
-            <div className="flex gap-2">
-              {slides.map((_, index) => (
-                <button
+        {/* Contact Details - One Line Design */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="max-w-4xl mx-auto mb-12"
+        >
+          <div className="bg-white rounded-lg border border-slate-200 shadow-lg p-6 sm:p-8">
+            <div className="space-y-5">
+              {contactInfo.map((info, index) => (
+                <motion.a
                   key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    currentSlide === index 
-                      ? 'bg-amber-500 scale-125' 
-                      : 'bg-slate-300 hover:bg-amber-300'
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
+                  href={info.link}
+                  target={info.link.startsWith('http') ? "_blank" : "_self"}
+                  rel={info.link.startsWith('http') ? "noopener noreferrer" : ""}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="flex items-center gap-3 group"
+                >
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-8 h-8 rounded-lg bg-amber-500 flex items-center justify-center text-blue-950 flex-shrink-0">
+                      {info.icon}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <span className="text-xs font-bold text-amber-600 uppercase tracking-wider mr-2">
+                        {info.title}:
+                      </span>
+                      <span className="text-sm text-slate-700 group-hover:text-blue-950 transition-colors duration-300">
+                        {info.detail}
+                      </span>
+                    </div>
+                  </div>
+                </motion.a>
               ))}
             </div>
-
-            <button
-              onClick={nextSlide}
-              className="w-10 h-10 bg-white border-2 border-slate-300 rounded-full flex items-center justify-center hover:border-amber-400 hover:bg-amber-50 transition-all duration-300"
-              aria-label="Next slide"
-            >
-              <svg className="w-5 h-5 text-blue-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Additional Info - Very Close to Navigation */}
+        {/* Map and Business Hours - Side by Side */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.5 }}
-          className="text-center"
+          transition={{ duration: 0.6 }}
+          className="max-w-6xl mx-auto grid lg:grid-cols-3 gap-6"
         >
-          <p className="text-base text-slate-600 mb-3">
-            Need a customized logistics solution?
-          </p>
-          <button className="bg-blue-950 text-white px-8 py-3 rounded-lg font-semibold hover:bg-amber-500 hover:text-blue-950 transition-all duration-300 shadow-lg">
-            Contact Our Experts
-          </button>
+          {/* Map - Takes 2 columns */}
+          <div className="lg:col-span-2 bg-white rounded-lg overflow-hidden border border-slate-200 shadow-lg h-[350px]">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.852332136551!2d106.84660819999999!3d-6.150524900000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5cf8bbf12c5%3A0x74b9f0e766236cb1!2sMenara%20Jakarta%20at%20Kemayoran!5e0!3m2!1sen!2sid!4v1762316682581!5m2!1sen!2sid"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Harton Logistics Office Location"
+            ></iframe>
+          </div>
+
+          {/* Business Hours - Takes 1 column */}
+          <div className="bg-white rounded-lg border border-slate-200 shadow-lg p-6 flex flex-col justify-center">
+            <h3 className="text-lg font-bold text-blue-950 mb-4 flex items-center gap-2">
+              <svg className="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Business Hours
+            </h3>
+            <div className="space-y-3">
+              <div className="flex justify-between text-sm">
+                <span className="text-slate-600">Mon - Fri</span>
+                <span className="font-semibold text-blue-950">09:00 - 18:00</span>
+              </div>
+              <div className="flex justify-between text-sm">
+                <span className="text-slate-600">Saturday</span>
+                <span className="font-semibold text-blue-950">09:00 - 14:00</span>
+              </div>
+              <div className="flex justify-between text-sm">
+                <span className="text-slate-600">Sunday</span>
+                <span className="font-semibold text-blue-950">Closed</span>
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
+
+      {/* WhatsApp Floating Button */}
+      <a
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 transition-all duration-300 hover:scale-110 group"
+        aria-label="Chat on WhatsApp"
+      >
+        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+        
+        {/* Tooltip */}
+        <span className="absolute right-full mr-3 px-3 py-2 bg-slate-900 text-white text-sm rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+          Chat with us on WhatsApp
+        </span>
+      </a>
     </section>
   );
 }
